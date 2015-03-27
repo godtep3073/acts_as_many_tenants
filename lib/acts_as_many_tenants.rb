@@ -12,15 +12,11 @@ module ActsAsManyTenants
       # e.g. account_ids
       singular_ids = "#{association.to_s.singularize}_ids"
 
-      if options[:through]
-        has_many association, :through => options[:through], :class_name => options[:class_name]
-        reflection = reflect_on_association(association)
+      reflection = reflect_on_association(association)
 
+      if options[:through]
         source_reflection = reflection.source_reflection
         through_reflection = reflection.through_reflection
-      else
-        has_and_belongs_to_many association, :class_name => options[:class_name]
-        reflection = reflect_on_association(association)
       end
 
       if options[:auto]
