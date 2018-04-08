@@ -14,7 +14,9 @@ You can specify the name of the tenant model as an attribute (defaults to `Accou
 
 ``acts_as_many_tenants(:accounts)``
 
-You can also use a `has_many :through` relation for tenants. 
+# \*\*\* Options: through, is broken in Rails 5 \*\*\*
+
+You can also use a `has_many :through` relation for tenants.
 For example a `Task` may belong to a `Project` and relate to many accounts through its project:
 
 ``acts_as_many_tenants(:accounts, :through => :project)``
@@ -44,8 +46,8 @@ and run
 
 ## TODO
 
-Make associations immutable in order to align with `acts_as_tenant`. 
-At the moment only the `association=[model]` and `association_ids=ids` methods take care of that. Missing implementation for 
+Make associations immutable in order to align with `acts_as_tenant`.
+At the moment only the `association=[model]` and `association_ids=ids` methods take care of that. Missing implementation for
 the other association writers `associations.<<(model)`, `associations.delete(model)`, `associations.clear`, `associations.build`, `associations.create`.
 
 Pull Requests welcome!

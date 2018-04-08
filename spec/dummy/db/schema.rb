@@ -11,7 +11,7 @@ ActiveRecord::Schema.define(:version => 2) do
     t.references :account
     t.references :project
   end
-  
+
   create_table :tasks, :force => true do |t|
     t.column :name, :string
     t.references :project
@@ -43,5 +43,5 @@ ActiveRecord::Schema.define(:version => 2) do
     t.references :account
     t.references :thing
   end
-  
+
 end
